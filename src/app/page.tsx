@@ -1,9 +1,9 @@
-import ComingSoonBanner from "@/components/ComingSoonBanner";
+import HeroBanner from "@/components/HeroBanner";
 
 export default function Home() {
   return (
-    <main>
-      <ComingSoonBanner />
+    <main className="flex">
+      <HeroBanner />
     </main>
   );
 }
