@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  scales,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -27,7 +28,7 @@ export default function CourseGraph({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, 
     plugins: {
       legend: {
         display: false,
-      }
+      },
     },
   };
 
@@ -38,7 +39,7 @@ export default function CourseGraph({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, 
     datasets: [
       {
         data: [A, B, C, D, F], //, P, NP, IX, RD, SP, W, EW
-        backgroundColor: 'lightgreen',
+        backgroundColor: 'green',
       },
     ],
   };

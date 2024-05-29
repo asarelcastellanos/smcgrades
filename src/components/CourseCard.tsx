@@ -2,7 +2,7 @@ import CourseGraph from './CourseGraph'
 
 export default function CourseCard({ course }: any) {
 
-  let passingRate = ( (course.A + course.B + course.C) / course.Total ) * 100;
+  let passingRate = ( ( (course.A + course.B + course.C) / course.Total ) * 100 ).toPrecision(4);
 
   return (
     <article className="flex max-w-xl flex-col items-start justify-between">
@@ -25,7 +25,7 @@ export default function CourseCard({ course }: any) {
           Instructor: {course.Instructor}
         </h3>
         <p>Total Students: {course.Total}</p>
-        <p>Passing Rate: {passingRate.toPrecision(4)}%</p>
+        <p>Passing Rate: {passingRate}%</p>
       </div>
     </article>
   );

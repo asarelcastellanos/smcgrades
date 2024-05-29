@@ -1,7 +1,4 @@
-import CoursePage from "@/app/course/[_id]/page";
 import CourseCard from "@/components/CourseCard";
-import CourseGraph from "@/components/CourseGraph";
-import organize_courses from "@/utils/organize_courses";
 
 async function getCoursesData(semester_year: string, course_name: string) {
   const res = await fetch(`https://api.smcgrades.com/semester/${semester_year}/courses/${course_name}`);
@@ -33,7 +30,21 @@ export default async function CoursesPage({ params }: { params: { semester_year:
             Semester: {courseYear}
           </p>
         </div>
-        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        {/* <div>
+          <label htmlFor="location" className="block text-sm font-medium text-gray-700">
+            Sort by:
+          </label>
+          <select
+            id="location"
+            name="location"
+            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+            defaultValue="Highest Passing Rate"
+          >
+            <option>Highest Passing Rate</option>
+            <option>Lowest Passing Rate</option>
+          </select>
+        </div> */}
+        <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {courses.map((course: any) => {
             return (
               <div key={course._id}>
