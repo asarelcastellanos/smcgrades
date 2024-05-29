@@ -26,24 +26,25 @@ export default function CourseGraph({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, 
     responsive: true,
     plugins: {
       legend: {
+        display: false,
         position: 'top' as const,
       },
-      title: {
-        display: true,
-        text: `Grade Distribution For: ${Course}`,
-      },
+      // title: {
+      //   display: true,
+      //   text: `Grade Distribution For: ${Course}`,
+      // },
     },
   };
 
-  const labels = ['A', 'B', 'C', 'D', 'F', 'P', 'NP', 'IX', 'RD', 'SP', 'W', 'EW'];
+  const labels = ['A', 'B', 'C', 'D', 'F']; //, 'P', 'NP', 'IX', 'RD', 'SP', 'W', 'EW'
 
   const data = {
     labels,
     datasets: [
       {
         label: `${Course}`,
-        data: [A, B, C, D, F, P, NP, IX, RD, SP, W, EW],
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+        data: [A, B, C, D, F], //, P, NP, IX, RD, SP, W, EW
+        backgroundColor: 'lightgreen',
       },
     ],
   };
