@@ -27,12 +27,7 @@ export default function CourseGraph({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, 
     plugins: {
       legend: {
         display: false,
-        position: 'top' as const,
-      },
-      // title: {
-      //   display: true,
-      //   text: `Grade Distribution For: ${Course}`,
-      // },
+      }
     },
   };
 
@@ -42,7 +37,6 @@ export default function CourseGraph({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, 
     labels,
     datasets: [
       {
-        label: `${Course}`,
         data: [A, B, C, D, F], //, P, NP, IX, RD, SP, W, EW
         backgroundColor: 'lightgreen',
       },

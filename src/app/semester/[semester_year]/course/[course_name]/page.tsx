@@ -18,8 +18,8 @@ export default async function CoursesPage({ params }: { params: { semester_year:
   const courses = await getCoursesData(params.semester_year, params.course_name);
 
   console.log("Not organized: ", courses);
-  let organized_courses = organize_courses(courses);
-  console.log("Organized courses: ", organized_courses);
+  // let organized_courses = organize_courses(courses);
+  // console.log("Organized courses: ", organized_courses);
 
   return (
     <div className="bg-white py-24 sm:py-32">
@@ -31,7 +31,7 @@ export default async function CoursesPage({ params }: { params: { semester_year:
           </p>
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {organized_courses.map((course: any) => {
+          {courses.map((course: any) => {
             return (
               <div key={course._id}>
                 <CourseCard course={course} />
