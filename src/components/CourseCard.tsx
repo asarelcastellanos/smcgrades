@@ -1,79 +1,26 @@
-"use client";
+import CourseGraph from './CourseGraph'
 
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend,
-  } from 'chart.js';
-  import { Bar } from 'react-chartjs-2';
-
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    BarElement,
-    Title,
-    Tooltip,
-    Legend
+export default function CourseCard({ course }: any) {
+  return (
+    <article className="flex max-w-xl flex-col items-start justify-between">
+      <CourseGraph {...course} />
+      <div className="flex items-center gap-x-4 text-xs">
+        <p
+          className="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100"
+        >
+          {course.Department}
+        </p>
+      </div>
+      <div className="group relative">
+        <h3 className="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+          <span className="absolute inset-0" />
+          {course.Course}
+        </h3>
+        <p className="font-semibold text-gray-900">
+            <span className="absolute inset-0" />
+            {course.Instructor}
+          </p>
+      </div>
+    </article>
   );
-
-export default function CourseCard({ _id, A, B, C, D, F, P, NP, IX, RD, SP, W, EW, Total, Department, Subject, Course, Instructor }: { _id: string, A: number, B: number, C: number, D: number, F: number, P: number, NP: number, IX: number, RD: number, SP: number, W: number, EW: number, Total: number, Department: string, Subject: string, Course: string, Instructor: string }) {
-
-    const options = {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top' as const,
-            },
-            title: {
-                display: true,
-                text: `Grade Distribution For: ${Course}`,
-            },
-        },
-    };
-
-    const labels = ['A', 'B', 'C', 'D', 'F', 'P', 'NP', 'IX', 'RD', 'SP', 'W', 'EW'];
-
-    const data = {
-        labels,
-        datasets: [
-          {
-            label: `${Course}`,
-            data: [A, B, C, D, F, P, NP, IX, RD, SP, W, EW],
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-          },
-        ],
-      };
-
-    return (
-        <div className="mt-10">
-            <Bar options={options} data={data} />
-            <p>{Department}</p>
-            <p>{Subject}</p>
-            <p>{Course}</p>
-            <p>{Instructor}</p>
-        </div>
-    );
 }
-
-//   "_id": "65f1f5f2c223f0f39ccbeb99",
-//         "A": 20,
-//         "B": 9,
-//         "C": 8,
-//         "D": 0,
-//         "F": 0,
-//         "P": 1,
-//         "NP": 0,
-//         "IX": 0,
-//         "RD": 0,
-//         "SP": 0,
-//         "W": 2,
-//         "EW": 6,
-//         "Total": 46,
-//         "Department": "Business",
-//         "Subject": "ACCTG",
-//         "Course": "ACCTG 1",
-//         "Instructor": "LAMARRA F"
